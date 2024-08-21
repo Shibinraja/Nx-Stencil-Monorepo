@@ -6,51 +6,61 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "@nx/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/react-app"
+        "compiler": "babel",
+        "outputPath": "dist/apps/react-app",
+        "index": "apps/react-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/react-app/src/main.tsx",
+        "tsConfig": "apps/react-app/tsconfig.app.json",
+        "assets": [
+          "apps/react-app/src/favicon.ico",
+          "apps/react-app/src/assets"
+        ],
+        "styles": ["apps/react-app/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "apps/react-app/webpack.config.js"
       },
       "configurations": {
         "development": {
-          "mode": "development"
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         },
         "production": {
-          "mode": "production"
+          "fileReplacements": [
+            {
+              "replace": "apps/react-app/src/environments/environment.ts",
+              "with": "apps/react-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
         }
       }
     },
     "serve": {
-      "executor": "@nx/vite:dev-server",
+      "executor": "@nx/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "react-app:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "react-app:build:development",
-          "hmr": true
-        },
-        "production": {
-          "buildTarget": "react-app:build:production",
-          "hmr": false
-        }
-      }
-    },
-    "preview": {
-      "dependsOn": ["build"],
-      "executor": "@nx/vite:preview-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "react-app:build"
+        "buildTarget": "react-app:build",
+        "hmr": true
       },
       "configurations": {
         "development": {
           "buildTarget": "react-app:build:development"
         },
         "production": {
-          "buildTarget": "react-app:build:production"
+          "buildTarget": "react-app:build:production",
+          "hmr": false
         }
       }
     },

@@ -41,7 +41,7 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
-      includeGlobalScripts: false,
+      dir: 'dist/components'
     },
     reactOutputTarget({
       componentCorePackage: '@nx-workspace/web-component',
@@ -51,7 +51,7 @@ export const config: Config = {
     }),
 
     angularOutputTarget({
-      componentCorePackage: '@undefined/web-component',
+      componentCorePackage: '@nx-workspace/web-component',
       directivesProxyFile:
         '../../../libs/web-component-angular/src/generated/directives/proxies.ts',
       directivesArrayFile:

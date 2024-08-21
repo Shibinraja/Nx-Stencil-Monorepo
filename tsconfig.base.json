@@ -16,13 +16,13 @@
     "baseUrl": ".",
     "paths": {
       "@nx-workspace/web-component": ["dist/libs/web-component"],
-      "@nx-workspace/web-component/loader": ["dist/libs/web-component/loader"],
       "@nx-workspace/web-component-angular": [
         "libs/web-component-angular/src/index.ts"
       ],
       "@nx-workspace/web-component-react": [
         "libs/web-component-react/src/index.ts"
-      ]
+      ],
+      "@nx-workspace/web-component/loader": ["dist/libs/web-component/loader"]
     }
   },
   "exclude": ["node_modules", "tmp"]

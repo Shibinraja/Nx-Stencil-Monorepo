@@ -1,13 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.scss';
-import { MyComponent } from  '@nx-workspace/web-component-react'; 
 
 import NxWelcome from './nx-welcome';
+
+import { MyComponent } from  '@nx-workspace/web-component-react'; 
 
 export function App() {
   return (
     <div>
-      <MyComponent first='Kyyba' middle='Tech' last='India'></MyComponent>
+       <MyComponent first='Kybba' middle='India' last='Ltd'></MyComponent>
       <NxWelcome title="react-app" />
     </div>
   );
