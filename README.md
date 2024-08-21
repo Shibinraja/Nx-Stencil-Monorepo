@@ -8,9 +8,38 @@
 
 Run `nx graph` to see a diagram of the dependencies of the projects.
 
-## Remote caching
+## Adding capabilities to your workspace
 
-Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and make CI faster.
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+
+Below are our core plugins:
+
+- [React](https://reactjs.org)
+  - `npm install --save-dev @nrwl/react`
+- Web (no framework frontends)
+  - `npm install --save-dev @nrwl/web`
+- [Angular](https://angular.io)
+  - `npm install --save-dev @nrwl/angular`
+
+There are also many [community plugins](https://nx.dev/community) you could add.
+
+## Generating React Application
+
+Run `nx generate @nrwl/react:application` to generate an application.
+
+## Generating Angular Application
+
+Run `nx generate @nrwl/angular:application` to generate an application.
+
+## Build Stencil Web Component
+
+Run `nx build web-component` to build stencil web component.
+
+## Development server
+
+Run `nx serve` with app name (ex:angular-app, react-app, web-component) for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 ## Further help
 
